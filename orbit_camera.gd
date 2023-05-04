@@ -16,8 +16,7 @@ func _ready():
 	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta):
+func _physics_process(_delta):
 	CamPos.transform.origin = Vector3(0,0,zoom)
 	transform.basis = Basis(Quaternion.from_euler(Vector3(phi,theta,0)))
 	#transform.basis = from_euler

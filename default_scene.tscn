@@ -1,23 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dxa58tx7omcyv"]
+[gd_scene load_steps=3 format=3 uid="uid://dxa58tx7omcyv"]
 
 [ext_resource type="PackedScene" uid="uid://014qsodi72e3" path="res://orbit_camera.tscn" id="1_0bxbq"]
+[ext_resource type="PackedScene" uid="uid://to7upd7dh6pu" path="res://attractor_area.tscn" id="2_nunxf"]
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000548363, -2.38419e-07, 0.00492644)
-
-[node name="TestObject" type="CSGCombiner3D" parent="."]
-
-[node name="CSGSphere3D" type="CSGSphere3D" parent="TestObject"]
-radial_segments = 64
-rings = 64
-
-[node name="CSGSphere3D2" type="CSGSphere3D" parent="TestObject"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00128388, 0.359276, -0.349398)
-operation = 2
-radial_segments = 64
-rings = 64
 
 [node name="OrbitCamera" parent="." instance=ExtResource("1_0bxbq")]
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.221004, 0.975273, 0, -0.975273, 0.221004, 0, 3.80721, 1.50425)
+
+[node name="AttractorArea" parent="." instance=ExtResource("2_nunxf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.20544)
