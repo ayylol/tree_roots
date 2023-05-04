@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d05qtt2khlep2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_mddi7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2165n"]
+albedo_color = Color(0, 0.858824, 0.901961, 1)
+
+[node name="AttractorPoint" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("SphereMesh_mddi7")
+surface_material_override/0 = SubResource("StandardMaterial3D_2165n")
