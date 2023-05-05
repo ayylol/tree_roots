@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d05qtt2khlep2"]
+[gd_scene load_steps=5 format=3 uid="uid://d05qtt2khlep2"]
 
 [ext_resource type="Script" path="res://attractor_point.gd" id="1_uky4e"]
+[ext_resource type="PackedScene" uid="uid://v3g23vbgk7km" path="res://neighborhood.tscn" id="2_brrl0"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_mddi7"]
 
@@ -14,3 +15,25 @@ script = ExtResource("1_uky4e")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("SphereMesh_mddi7")
 surface_material_override/0 = SubResource("StandardMaterial3D_2165n")
+
+[node name="DistanceNeighborhoods" type="Node3D" parent="."]
+
+[node name="Neighborhood" parent="DistanceNeighborhoods" instance=ExtResource("2_brrl0")]
+
+[node name="Neighborhood2" parent="DistanceNeighborhoods" instance=ExtResource("2_brrl0")]
+
+[node name="Neighborhood3" parent="DistanceNeighborhoods" instance=ExtResource("2_brrl0")]
+
+[node name="Neighborhood4" parent="DistanceNeighborhoods" instance=ExtResource("2_brrl0")]
+
+[node name="Neighborhood5" parent="DistanceNeighborhoods" instance=ExtResource("2_brrl0")]
+
+[node name="Neighborhood6" parent="DistanceNeighborhoods" instance=ExtResource("2_brrl0")]
+
+[node name="Neighborhood7" parent="DistanceNeighborhoods" instance=ExtResource("2_brrl0")]
+
+[node name="Neighborhood8" parent="DistanceNeighborhoods" instance=ExtResource("2_brrl0")]
+
+[node name="Neighborhood9" parent="DistanceNeighborhoods" instance=ExtResource("2_brrl0")]
+
+[node name="Neighborhood10" parent="DistanceNeighborhoods" instance=ExtResource("2_brrl0")]
