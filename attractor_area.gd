@@ -10,8 +10,10 @@ var attractor_scene = preload("res://attractor_point.tscn")
 @onready var min_extent = Vector3(1,1,1)*1.79769e308
 @onready var SpawnArea = $SpawnArea
 @onready var PointsParent = $PointsParent
+@onready var StartSegment = $SegmentsParent/Segment
 
 func _ready():
+	StartSegment.init($SegmentsParent.global_position)
 	for point_local in SpawnArea.shape.points:
 		var point = SpawnArea.to_global(point_local)
 		
@@ -30,6 +32,5 @@ func _ready():
 		if(attractor.is_inside()):
 			num_attractors+=1
 		else:
-			print("yep")
 			attractor.free()
 

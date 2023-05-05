@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpqjffo2n437r"]
+[gd_scene load_steps=3 format=3 uid="uid://bpqjffo2n437r"]
 
 [ext_resource type="Script" path="res://segment.gd" id="1_kjbqg"]
 
+[sub_resource type="SphereMesh" id="SphereMesh_sqc16"]
+
 [node name="Segment" type="Node3D"]
 script = ExtResource("1_kjbqg")
+
+[node name="Point" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+mesh = SubResource("SphereMesh_sqc16")

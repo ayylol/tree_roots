@@ -1,13 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dxa58tx7omcyv"]
+[gd_scene load_steps=4 format=3 uid="uid://dxa58tx7omcyv"]
 
 [ext_resource type="PackedScene" uid="uid://014qsodi72e3" path="res://orbit_camera.tscn" id="1_0bxbq"]
 [ext_resource type="Script" path="res://testing_script.gd" id="1_fp1tf"]
 [ext_resource type="PackedScene" uid="uid://to7upd7dh6pu" path="res://attractor_area.tscn" id="2_nunxf"]
-[ext_resource type="PackedScene" uid="uid://bpqjffo2n437r" path="res://segment.tscn" id="3_q61oe"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_adrb4"]
-radius = 0.05
-height = 0.1
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000548363, -2.38419e-07, 0.00492644)
@@ -19,14 +14,3 @@ script = ExtResource("1_fp1tf")
 transform = Transform3D(1, 0, 0, 0, 0.221004, 0.975273, 0, -0.975273, 0.221004, 0, 3.80721, 1.50425)
 
 [node name="AttractorArea" parent="." instance=ExtResource("2_nunxf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.20544)
-
-[node name="Segment" parent="." instance=ExtResource("3_q61oe")]
-
-[node name="Point1" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 0)
-mesh = SubResource("SphereMesh_adrb4")
-
-[node name="Point2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7119, 3.20011, -1.12036)
-mesh = SubResource("SphereMesh_adrb4")
