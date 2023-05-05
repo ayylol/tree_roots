@@ -37,3 +37,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2165n")
 [node name="Neighborhood9" parent="DistanceNeighborhoods" instance=ExtResource("2_brrl0")]
 
 [node name="Neighborhood10" parent="DistanceNeighborhoods" instance=ExtResource("2_brrl0")]
+gravity_point_unit_distance = 0.131

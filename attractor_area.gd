@@ -16,6 +16,12 @@ var attractor_scene = preload("res://attractor_point.tscn")
 
 func _ready():
 	StartSegment.init($SegmentsParent.global_position)
+	var new_segment = StartSegment.extend(Vector3(0,1.0,0.4))
+	new_segment.name = "Segment2"
+	new_segment = new_segment.extend(Vector3(0,1.0,0.3))
+	new_segment.name = "Segment3"
+	new_segment = StartSegment.extend(Vector3(1.0,1.5,-2.0))
+	new_segment.name = "Segment4"
 	# Find the extents of the Bounds
 	for point_local in SpawnArea.shape.points:
 		var point = SpawnArea.to_global(point_local)
@@ -33,6 +39,7 @@ func _ready():
 	max_dist = maxf(maxf(extent.x,extent.y),extent.z)
 	
 	make_attractors(max_attractors)
+
 
 func make_attractors(num: int):
 	var num_made = 0
@@ -53,3 +60,18 @@ func clear_attractors():
 	for n in PointsParent.get_children():
 		PointsParent.remove_child(n)
 		n.queue_free()
+
+func sca_step():
+	pass
+	# Get closest point to each attractor
+	# Add normalized direction to node
+	# For each node influenced extend in direction sum multiplied by segment length
+
+func _on_timer_timeout():
+	print("Calculating Closest")
+	for a in PointsParent.get_children():
+		var _x = a.get_closest()
+#		if (x == null):
+#			print("NONE")
+#		else:
+#			print(x.name)
