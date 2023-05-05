@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bpqjffo2n437r"]
 
-[ext_resource type="Script" path="res://segment.gd" id="1_unnoj"]
+[ext_resource type="Script" path="res://segment.gd" id="1_3ij8p"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_sqc16"]
 
@@ -8,7 +8,7 @@
 radius = 0.0599065
 
 [node name="Segment" type="Node3D"]
-script = ExtResource("1_unnoj")
+script = ExtResource("1_3ij8p")
 
 [node name="Point" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

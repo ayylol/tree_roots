@@ -1,5 +1,7 @@
 extends Node3D
 
+var extend_dir = Vector3(0,0,0)
+
 var segment_scene = preload("res://segment.tscn")
 
 func init(pos: Vector3) -> void:
@@ -7,11 +9,16 @@ func init(pos: Vector3) -> void:
 	var l = line(to_local(get_parent().global_position),Vector3(0,0,0))
 	add_child(l)
 	
-func extend(pos: Vector3)-> Node3D:
+func extend_to(pos: Vector3)-> Node3D:
 	var new_segment = segment_scene.instantiate()
 	add_child(new_segment)
 	new_segment.init(pos)
 	return new_segment
+
+func extend(segment_length: float)-> Node3D:
+	var to = global_position+extend_dir.normalized()*segment_length
+	extend_dir = Vector3(0,0,0)
+	return extend_to(to)
 
 func line(pos1: Vector3, pos2: Vector3, color = Color.WHITE_SMOKE) -> MeshInstance3D:
 	var mesh_instance := MeshInstance3D.new()

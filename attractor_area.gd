@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-@export var max_attractors: int = 500
+@export var max_attractors: int = 100
 @export var destroy_dist: float = 0.4
 @export var segment_length: float = 0.2
 
@@ -16,12 +16,6 @@ var attractor_scene = preload("res://attractor_point.tscn")
 
 func _ready():
 	StartSegment.init($SegmentsParent.global_position)
-	var new_segment = StartSegment.extend(Vector3(0,1.0,0.4))
-	new_segment.name = "Segment2"
-	new_segment = new_segment.extend(Vector3(0,1.0,0.3))
-	new_segment.name = "Segment3"
-	new_segment = StartSegment.extend(Vector3(1.0,1.5,-2.0))
-	new_segment.name = "Segment4"
 	# Find the extents of the Bounds
 	for point_local in SpawnArea.shape.points:
 		var point = SpawnArea.to_global(point_local)
@@ -62,16 +56,18 @@ func clear_attractors():
 		n.queue_free()
 
 func sca_step():
-	pass
+	var to_extend = []
 	# Get closest point to each attractor
-	# Add normalized direction to node
+	for p in PointsParent.get_children():
+		var c = p.get_closest()
+		if c == null: continue
+		to_extend.append(c)
+		# Add normalized direction to node
+		c.extend_dir += (p.global_position-c.global_position).normalized()
+		
 	# For each node influenced extend in direction sum multiplied by segment length
+	for n in to_extend:
+		n.extend(segment_length)
 
 func _on_timer_timeout():
-	print("Calculating Closest")
-	for a in PointsParent.get_children():
-		var _x = a.get_closest()
-#		if (x == null):
-#			print("NONE")
-#		else:
-#			print(x.name)
+	sca_step()
