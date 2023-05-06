@@ -14,3 +14,5 @@ script = ExtResource("1_fp1tf")
 transform = Transform3D(1, 0, 0, 0, 0.221004, 0.975273, 0, -0.975273, 0.221004, 0, 3.80721, 1.50425)
 
 [node name="AttractorArea" parent="." instance=ExtResource("2_nunxf")]
+destroy_dist = 1.0
+segment_length = 0.5

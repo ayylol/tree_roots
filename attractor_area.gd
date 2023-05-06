@@ -69,5 +69,8 @@ func sca_step():
 	for n in to_extend:
 		n.extend(segment_length)
 
+func _physics_process(delta):
+	sca_step()
+
 func _on_timer_timeout():
 	sca_step()
