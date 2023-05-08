@@ -30,6 +30,7 @@ func get_closest():
 		if (!result.is_empty()):
 			if(i==0):
 				queue_free()
+				break
 			var closest = result[0].collider.get_parent()
 			var min_dist2 = 1.79769e308
 			# find closest	
