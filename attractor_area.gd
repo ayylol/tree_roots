@@ -82,13 +82,16 @@ func sca_step():
 	for p in PointsParent.get_children():
 		var c = p.get_closest()
 		if c == null: continue
-		to_extend[c]=0
+		if(!to_extend.has(c)): 
+			to_extend[c]=1
+		else:
+			to_extend[c]+=1
 		# Add normalized direction to node
 		c.extend_dir += (p.global_position-c.global_position).normalized()#*randf_range(0.1,1.0)
 		
 	# For each node influenced extend in direction sum multiplied by segment length
 	for n in to_extend.keys():
-		print(n.global_position)
+		print(n.global_position," closest to ", to_extend[n], " nodes")
 		n.extend(segment_length)
 	print("Done SCA Step\n")
 	counter+=1

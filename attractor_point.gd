@@ -26,8 +26,9 @@ func get_closest():
 	for n in neighborhoods.get_children():
 		params.shape = n.get_child(0).shape
 		params.transform = n.global_transform
-		var result = space3d.intersect_shape(params)
+		var result = space3d.intersect_shape(params, 128)
 		if (!result.is_empty()):
+			#print("checking: ", result.size(), " nodes")
 			if(i==0):
 				queue_free()
 				break
