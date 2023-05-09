@@ -5,6 +5,8 @@ var extend_dir = Vector3(0,0,0)
 
 var segment_scene = preload("res://segment.tscn")
 
+@onready var segments_parent = $SegmentsParent
+
 func init(pos: Vector3) -> void:
 	global_position = pos
 	if (has_node("Line")):
@@ -17,7 +19,7 @@ func init(pos: Vector3) -> void:
 	
 func extend_to(pos: Vector3)-> Segment:
 	var new_segment = segment_scene.instantiate()
-	add_child(new_segment)
+	segments_parent.add_child(new_segment)
 	new_segment.init(pos)
 	return new_segment
 
@@ -42,7 +44,7 @@ func line(pos1: Vector3, pos2: Vector3, color = Color.WHITE_SMOKE) -> MeshInstan
 	material.albedo_color = color
 	
 	return mesh_instance
-	
+
 func decimate():
 	pass
 	# Get list of nodes in decimate range
@@ -50,14 +52,19 @@ func decimate():
 	# Add children of decimated nodes to this node, re-init to get correct position relative to parent
 	# free decimated node
 	# average position and reinitialize this node's position
-	
-	
-func traverse_segments(pre: String, post:String, depth:int):
-	var cull = false
-	if(has_method(pre)):
-		cull = call(pre, depth)
-	if(!cull):
-		pass
-		#for 
-	if(has_method(post)): call(post, depth)
 
+func segments_to_string(transform: Transform3D)->String:
+	var pos = transform*global_position
+	var string: String = "( " + String.num(pos.x) + " " + String.num(pos.z) + " " + String.num(pos.y) + " ) "
+	var i = 0
+	for segment in segments_parent.get_children():
+		var is_last = i==segments_parent.get_child_count()-1
+		var pre = "" if is_last else "[ "
+		var post= "" if is_last else "] "
+		string += pre + segment.segments_to_string(transform) + post
+		i+=1
+	return string
+
+func write_tree_to_file():
+	var file = FileAccess.open("res://roots.data", FileAccess.WRITE)
+	file.store_string(segments_to_string(Transform3D()))

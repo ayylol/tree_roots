@@ -50,7 +50,7 @@ func _unhandled_input(_event):
 	if(Input.is_action_just_pressed("Decimate")):
 		pass
 	if(Input.is_action_just_pressed("Output")):
-		pass
+		StartSegment.write_tree_to_file()
 	if(Input.is_action_just_pressed("StepSCA")):
 		sca_step()
 
