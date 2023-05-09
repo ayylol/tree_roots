@@ -64,7 +64,7 @@ func decimate():
 
 func segments_to_string(transform: Transform3D)->String:
 	var pos = transform*global_position
-	var string: String = "( " + String.num(pos.x) + " " + String.num(pos.z) + " " + String.num(pos.y) + " ) "
+	var string: String = "( " + String.num(pos.x) + " " + String.num(pos.y) + " " + String.num(pos.z) + " ) "
 	var i = 0
 	for segment in segments_parent.get_children():
 		var is_last = i==segments_parent.get_child_count()-1
@@ -76,4 +76,7 @@ func segments_to_string(transform: Transform3D)->String:
 
 func write_tree_to_file():
 	var file = FileAccess.open("res://roots.data", FileAccess.WRITE)
-	file.store_string(segments_to_string(Transform3D()))
+	var t = Transform3D()
+	t = t.scaled(Vector3(0.1,0.1,0.1))
+	t = t.rotated(Vector3(1,0,0),90)
+	file.store_string(segments_to_string(t))

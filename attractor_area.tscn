@@ -12,12 +12,11 @@ collision_mask = 0
 script = ExtResource("1_t88um")
 
 [node name="SpawnArea" type="CollisionShape3D" parent="."]
-transform = Transform3D(3.13615, -0.218467, 2.43215, -0.264479, 3.90512, 0.69181, -2.42758, -0.707688, 3.06669, -1.4444, -5.89616, -0.437206)
+transform = Transform3D(3.13615, -0.218467, 2.43215, -0.264479, 3.90512, 0.69181, -2.42758, -0.707688, 3.06669, -1.4444, -7.51986, -0.437206)
 shape = SubResource("ConvexPolygonShape3D_5ol1b")
 
 [node name="PointsParent" type="Node3D" parent="."]
 
 [node name="SegmentsParent" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.232028, 2.39719, 0.0511147)
 
 [node name="Segment" parent="SegmentsParent" instance=ExtResource("2_3ownf")]

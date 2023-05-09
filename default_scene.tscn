@@ -8,12 +8,12 @@
 script = ExtResource("1_fp1tf")
 
 [node name="OrbitCamera" parent="." instance=ExtResource("1_0bxbq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.12428, 0)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.221004, 0.975273, 0, -0.975273, 0.221004, 0, 3.80721, 1.50425)
 
 [node name="AttractorArea" parent="." instance=ExtResource("2_nunxf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.267563, 4.06091, 0.482758)
 max_attractors = 200
 destroy_dist = 2.0
 segment_length = 0.4
