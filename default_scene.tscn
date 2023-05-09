@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://to7upd7dh6pu" path="res://attractor_area.tscn" id="2_nunxf"]
 
 [node name="Node3D" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000548363, -2.38419e-07, 0.00492644)
 script = ExtResource("1_fp1tf")
 
 [node name="OrbitCamera" parent="." instance=ExtResource("1_0bxbq")]

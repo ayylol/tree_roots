@@ -1,4 +1,7 @@
 extends Node3D
+class_name Attractor
+
+var last_influenced: Segment = null
 
 @onready var neighborhoods = $DistanceNeighborhoods
 

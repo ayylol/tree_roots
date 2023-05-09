@@ -83,17 +83,24 @@ func sca_step():
 		var c = p.get_closest()
 		if c == null: continue
 		if(!to_extend.has(c)): 
-			to_extend[c]=1
+			to_extend[c]=[p]
 		else:
-			to_extend[c]+=1
+			to_extend[c].append(p)
 		# Add normalized direction to node
-		c.extend_dir += (p.global_position-c.global_position).normalized()#*randf_range(0.1,1.0)
+		c.extend_dir += (p.global_position-c.global_position).normalized()
+		# Keep track of the node that an attractor last extended
+		p.last_influenced = c
 		
 	# For each node influenced extend in direction sum multiplied by segment length
+	if(to_extend.is_empty()):
+		sca_on = false
+		print("None to extend")
 	for n in to_extend.keys():
-		print(n.global_position," closest to ", to_extend[n], " nodes")
+		if(to_extend[n].size()==2 and to_extend[n][0].last_influenced == n and to_extend[n][1].last_influenced == n):
+			n.extend_dir = (to_extend[n][0].global_position-n.global_position).normalized()
+		#print(n.global_position," closest to ", to_extend[n], " nodes")
 		n.extend(segment_length)
-	print("Done SCA Step\n")
+	#print("Done SCA Step\n")
 	counter+=1
 
 
