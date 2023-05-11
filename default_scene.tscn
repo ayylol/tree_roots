@@ -15,5 +15,5 @@ transform = Transform3D(1, 0, 0, 0, 0.221004, 0.975273, 0, -0.975273, 0.221004, 
 
 [node name="AttractorArea" parent="." instance=ExtResource("2_nunxf")]
 max_attractors = 200
-destroy_dist = 2.0
-segment_length = 0.4
+segment_length = 0.1
+t = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)

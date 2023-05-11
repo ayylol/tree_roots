@@ -3,6 +3,8 @@ extends StaticBody3D
 @export var max_attractors: int = 100
 @export var destroy_dist: float = 1
 @export var segment_length: float = 0.5
+@export var max_dist_factor: float = 1.0
+@export var t: Transform3D = Transform3D()
 
 var max_extent = Vector3(1,1,1)*-1.79769e308
 var min_extent = Vector3(1,1,1)*1.79769e308
@@ -50,10 +52,11 @@ func _unhandled_input(_event):
 	if(Input.is_action_just_pressed("Decimate")):
 		pass
 	if(Input.is_action_just_pressed("Output")):
-		StartSegment.write_tree_to_file()
+		StartSegment.write_tree_to_file(t)
 	if(Input.is_action_just_pressed("StepSCA")):
 		sca_step()
-
+	if(Input.is_action_just_pressed("AddAttractor")):
+		make_attractors(10)
 
 func make_attractors(num: int):
 	var num_made = 0
@@ -65,7 +68,7 @@ func make_attractors(num: int):
 					randf_range(min_extent.z,max_extent.z)))
 		PointsParent.add_child(attractor)
 		if(attractor.is_inside()):
-			attractor.init(max_dist,destroy_dist)
+			attractor.init(max_dist*max_dist_factor,destroy_dist)
 			num_made+=1
 		else:
 			attractor.free()
