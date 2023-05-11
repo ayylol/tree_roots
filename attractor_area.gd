@@ -14,8 +14,10 @@ var  sca_on = false
 var counter = 0
 
 var attractor_scene = preload("res://attractor_point.tscn")
+var current_area = null
 
 @onready var SpawnArea = $SpawnArea
+@onready var SpawnArea2 = $SpawnArea2
 @onready var PointsParent = $PointsParent
 @onready var StartSegment = $SegmentsParent/Segment
 
@@ -23,22 +25,28 @@ var attractor_scene = preload("res://attractor_point.tscn")
 func _ready():
 	StartSegment.init($SegmentsParent.global_position)
 	# Find the extents of the Bounds
-	for point_local in SpawnArea.shape.points:
-		var point = SpawnArea.to_global(point_local)
-		
+	set_spawnarea(SpawnArea)
+	make_attractors(max_attractors)
+	set_spawnarea(SpawnArea2)
+
+func set_spawnarea(shape):
+	if (current_area != null): current_area.disabled = true
+	current_area = shape
+	shape.disabled = false
+	
+	max_extent = Vector3(1,1,1)*-1.79769e308
+	min_extent = Vector3(1,1,1)*1.79769e308
+	for point_local in shape.shape.points:
+		var point = shape.to_global(point_local)
 		max_extent.x = maxf(point.x,max_extent.x)
 		max_extent.y = maxf(point.y,max_extent.y)
 		max_extent.z = maxf(point.z,max_extent.z)
-		
 		min_extent.x = minf(point.x,min_extent.x)
 		min_extent.y = minf(point.y,min_extent.y)
 		min_extent.z = minf(point.z,min_extent.z)
 	
 	var extent = abs(max_extent-min_extent)
-	
 	max_dist = maxf(maxf(extent.x,extent.y),extent.z)
-	
-	make_attractors(max_attractors)
 
 func _physics_process(_delta):
 	if(sca_on): 
