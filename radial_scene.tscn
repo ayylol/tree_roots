@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbd4dejxxi6nt"]
+
+[ext_resource type="PackedScene" uid="uid://dxa58tx7omcyv" path="res://default_scene.tscn" id="1_bo6rh"]
+[ext_resource type="PackedScene" uid="uid://bbggui2wka7ai" path="res://radial_area.tscn" id="2_jw012"]
+
+[node name="Node3D" instance=ExtResource("1_bo6rh")]
+
+[node name="RadialArea" parent="." index="2" instance=ExtResource("2_jw012")]

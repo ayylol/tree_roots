@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbggui2wka7ai"]
+
+[ext_resource type="Script" path="res://radial_area.gd" id="1_8gin7"]
+[ext_resource type="PackedScene" uid="uid://bpqjffo2n437r" path="res://segment.tscn" id="1_74nv6"]
+
+[node name="RadialArea" type="Node3D"]
+script = ExtResource("1_8gin7")
+
+[node name="Segment" parent="." instance=ExtResource("1_74nv6")]

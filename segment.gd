@@ -18,15 +18,6 @@ func init(pos: Vector3) -> void:
 	add_child(l)
 	
 func extend_to(pos: Vector3)-> Segment:
-	# Collide pos with world
-#	var params = PhysicsPointQueryParameters3D.new()
-#	params.position = pos
-#	params.collision_mask = 0b1000_0000
-#	var result = get_world_3d().direct_space_state.intersect_point(params)
-#	if(!result.is_empty()):
-#		print(result)
-#		print("COLLIDING!!!")
-#		return null
 	var new_segment = segment_scene.instantiate()
 	segments_parent.add_child(new_segment)
 	new_segment.init(pos)

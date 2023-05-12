@@ -13,12 +13,12 @@ script = ExtResource("1_t88um")
 max_dist_factor = 0.1
 
 [node name="SpawnArea" type="CollisionShape3D" parent="."]
-transform = Transform3D(6.32488, -0.0222713, 6.03466, 0.0144204, 1.08253, 0.306512, -4.92136, -0.0254509, 7.7566, -0.300922, -2.22668, -0.221484)
+transform = Transform3D(10.9851, -0.0210301, 9.54542, 0.0250455, 1.0222, 0.48483, -8.54747, -0.0240325, 12.2691, -0.300922, -2.22668, -0.221484)
 shape = SubResource("ConvexPolygonShape3D_5ol1b")
 disabled = true
 
 [node name="SpawnArea2" type="CollisionShape3D" parent="."]
-transform = Transform3D(-5.9871, 0.508315, -4.64545, -0.291837, -7.57587, -0.452846, -4.66406, -0.178476, 5.99156, 0, -7.75976, 0)
+transform = Transform3D(-6.20205, 0.494468, -14.3246, -0.956651, -10.6321, -0.330548, -13.3229, 0.533255, 6.69216, 3.07523, -9.24169, 1.16317)
 shape = SubResource("ConvexPolygonShape3D_5ol1b")
 disabled = true
 

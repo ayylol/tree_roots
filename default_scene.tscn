@@ -1,19 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxa58tx7omcyv"]
+[gd_scene load_steps=3 format=3 uid="uid://dxa58tx7omcyv"]
 
-[ext_resource type="PackedScene" uid="uid://014qsodi72e3" path="res://orbit_camera.tscn" id="1_0bxbq"]
-[ext_resource type="Script" path="res://testing_script.gd" id="1_fp1tf"]
-[ext_resource type="PackedScene" uid="uid://to7upd7dh6pu" path="res://attractor_area.tscn" id="2_nunxf"]
+[ext_resource type="Script" path="res://testing_script.gd" id="1_hca3r"]
+[ext_resource type="PackedScene" uid="uid://014qsodi72e3" path="res://orbit_camera.tscn" id="2_nkncv"]
 
 [node name="Node3D" type="Node3D"]
-script = ExtResource("1_fp1tf")
+script = ExtResource("1_hca3r")
 
-[node name="OrbitCamera" parent="." instance=ExtResource("1_0bxbq")]
+[node name="OrbitCamera" parent="." instance=ExtResource("2_nkncv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.12428, 0)
 
 [node name="Sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.221004, 0.975273, 0, -0.975273, 0.221004, 0, 3.80721, 1.50425)
-
-[node name="AttractorArea" parent="." instance=ExtResource("2_nunxf")]
-max_attractors = 200
-segment_length = 0.1
-t = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
