@@ -6,3 +6,5 @@
 [node name="Node3D" instance=ExtResource("1_bo6rh")]
 
 [node name="RadialArea" parent="." index="2" instance=ExtResource("2_jw012")]
+segment_length = 0.1
+t = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
